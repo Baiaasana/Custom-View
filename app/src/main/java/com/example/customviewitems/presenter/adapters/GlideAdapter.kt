@@ -1,4 +1,4 @@
-package com.example.customviewitems.adapters
+package com.example.customviewitems.presenter.adapters
 
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter

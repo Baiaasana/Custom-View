@@ -1,4 +1,4 @@
-package com.example.customviewitems.fragments
+package com.example.customviewitems.presenter.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.customviewitems.R
 import com.example.customviewitems.data.ItemModel
-import kotlin.math.acos
+import com.example.customviewitems.common.Glide
 
 class CustomViewAdapter(private val context: Context, private val list: List<ItemModel>) :
     ArrayAdapter<ItemModel>(context, R.layout.custom_item_view) {

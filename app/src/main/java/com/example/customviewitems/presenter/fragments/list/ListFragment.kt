@@ -1,6 +1,5 @@
-package com.example.customviewitems.fragments.list
+package com.example.customviewitems.presenter.fragments.list
 
-import android.icu.text.CaseMap.Title
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.customviewitems.data.ItemModel
 import com.example.customviewitems.databinding.FragmentListBinding
-import com.example.customviewitems.fragments.CustomViewAdapter
+import com.example.customviewitems.presenter.adapters.CustomViewAdapter
 
 class ListFragment : Fragment() {
 
