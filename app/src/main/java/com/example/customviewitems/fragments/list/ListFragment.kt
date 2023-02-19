@@ -1,5 +1,6 @@
 package com.example.customviewitems.fragments.list
 
+import android.icu.text.CaseMap.Title
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,13 +9,34 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.customviewitems.data.ItemModel
 import com.example.customviewitems.databinding.FragmentListBinding
+import com.example.customviewitems.fragments.CustomViewAdapter
 
 class ListFragment : Fragment() {
 
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
 
-    private val itemsList = mutableListOf<ItemModel>()
+    private lateinit var adapter: CustomViewAdapter
+
+    private val itemsList = mutableListOf(
+        ItemModel(
+            "AVATAR - 1",
+            "series",
+            "https://www.thewrap.com/wp-content/uploads/2022/06/Avatar-The-Last-Airbender.jpg"
+
+        ),
+        ItemModel(
+            "AVATAR - 2",
+            "series",
+            "https://static.wikia.nocookie.net/avatar/images/a/ae/Aang_at_Jasmine_Dragon.png/revision/latest?cb=20130612174003"
+
+        ),
+        ItemModel(
+            "AVATAR - 3",
+            "series",
+            "https://static.wikia.nocookie.net/character-tiers/images/f/f5/Aang_1280.jpg/revision/latest?cb=20200618102019"
+        )
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,32 +53,23 @@ class ListFragment : Fragment() {
         listeners()
     }
 
-    private fun listeners(){
-        binding.cvItem.setOnClickListener {
-            findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailsFragment(itemsList[0]))
-        }
-        binding.cvItem2.setOnClickListener {
-            findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailsFragment(itemsList[1]))
-        }
-        binding.cvItem3.setOnClickListener {
-            findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailsFragment(itemsList[2]))
+    private fun listeners() {
+        binding.listView.setOnItemClickListener { _, _, position, _ ->
+            findNavController().navigate(
+                ListFragmentDirections.actionListFragmentToDetailsFragment(
+                    itemsList[position]
+                )
+            )
         }
     }
 
-    private fun setUpItems(){
-
-        itemsList.add(ItemModel("AVATAR - 1", "series", "https://www.thewrap.com/wp-content/uploads/2022/06/Avatar-The-Last-Airbender.jpg"))
-        itemsList.add(ItemModel("AVATAR - 2", "series", "https://static.wikia.nocookie.net/avatar/images/a/ae/Aang_at_Jasmine_Dragon.png/revision/latest?cb=20130612174003"))
-        itemsList.add(ItemModel("AVATAR - 3", "series", "https://static.wikia.nocookie.net/character-tiers/images/f/f5/Aang_1280.jpg/revision/latest?cb=20200618102019"))
-
-        binding.cvItem.setData(itemsList[0])
-        binding.cvItem2.setData(itemsList[1])
-        binding.cvItem3.setData(itemsList[2])
+    private fun setUpItems() {
+        adapter = CustomViewAdapter(requireContext(), itemsList)
+        binding.listView.adapter = adapter
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }
