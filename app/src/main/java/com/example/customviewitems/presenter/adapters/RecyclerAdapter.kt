@@ -2,20 +2,17 @@ package com.example.customviewitems.presenter.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.customviewitems.data.ItemModel
 import com.example.customviewitems.data.ItemModel2
-import com.example.customviewitems.databinding.CustomItemViewBinding
 import com.example.customviewitems.databinding.RecyclerItemBinding
 
 class RecyclerAdapter :
-    androidx.recyclerview.widget.ListAdapter<ItemModel2, RecyclerAdapter.ProductsViewHolder>(ItemCallback) {
+    androidx.recyclerview.widget.ListAdapter<ItemModel2, RecyclerAdapter.ItemViewHolder>(ItemCallback) {
 
     var onItemClickListener: ((ItemModel2) -> Unit)? = null
 
-    inner class ProductsViewHolder(private val binding: RecyclerItemBinding) :
+    inner class ItemViewHolder(private val binding: RecyclerItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind() {
@@ -31,8 +28,8 @@ class RecyclerAdapter :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder =
-        ProductsViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
+        ItemViewHolder(
             RecyclerItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -40,7 +37,7 @@ class RecyclerAdapter :
             )
         )
 
-    override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) = holder.bind()
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) = holder.bind()
 
     object ItemCallback : DiffUtil.ItemCallback<ItemModel2>() {
         override fun areItemsTheSame(
