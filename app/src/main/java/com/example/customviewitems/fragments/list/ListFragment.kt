@@ -35,6 +35,12 @@ class ListFragment : Fragment() {
         binding.cvItem.setOnClickListener {
             findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailsFragment(itemsList[0]))
         }
+        binding.cvItem2.setOnClickListener {
+            findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailsFragment(itemsList[1]))
+        }
+        binding.cvItem3.setOnClickListener {
+            findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailsFragment(itemsList[2]))
+        }
     }
 
     private fun setUpItems(){
