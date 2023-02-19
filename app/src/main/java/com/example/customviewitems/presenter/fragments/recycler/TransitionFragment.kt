@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.customviewitems.R
+import com.example.customviewitems.data.ItemModel2
 import com.example.customviewitems.databinding.FragmentTransitionBinding
 
 class TransitionFragment : Fragment() {
@@ -26,7 +28,15 @@ class TransitionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        listeners()
+        init()
 
+    }
+    private fun init(){
+        val item = ItemModel2("Android", "AJSTRI", R.mipmap.ic_launcher)
+        binding.item = item
+    }
+    private fun listeners(){
         binding.root.setOnClickListener {
             val extras = FragmentNavigatorExtras(binding.ivImage to "image_to", binding.tvTitle to "title_to", binding.tvSubtitle to "subtitle_to")
             findNavController().navigate(

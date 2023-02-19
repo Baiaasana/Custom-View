@@ -8,13 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.customviewitems.data.ItemModel
 import com.example.customviewitems.data.ItemModel2
 import com.example.customviewitems.databinding.CustomItemViewBinding
+import com.example.customviewitems.databinding.RecyclerItemBinding
 
 class RecyclerAdapter :
     androidx.recyclerview.widget.ListAdapter<ItemModel2, RecyclerAdapter.ProductsViewHolder>(ItemCallback) {
 
     var onItemClickListener: ((ItemModel2) -> Unit)? = null
 
-    inner class ProductsViewHolder(private val binding: CustomItemViewBinding) :
+    inner class ProductsViewHolder(private val binding: RecyclerItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind() {
@@ -32,7 +33,7 @@ class RecyclerAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder =
         ProductsViewHolder(
-            CustomItemViewBinding.inflate(
+            RecyclerItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false

@@ -30,11 +30,15 @@
         tools:layout="@layout/fragment_transition" >
         <action
             android:id="@+id/action_recyclerFragment_to_recyclerDetailsFragment"
-            app:destination="@id/recyclerDetailsFragment" />
+            app:destination="@id/transitionDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/recyclerDetailsFragment"
+        android:id="@+id/transitionDetailsFragment"
         android:name="com.example.customviewitems.presenter.fragments.recycler_details.TransitionDetailsFragment"
         android:label="fragment_recycler_details"
-        tools:layout="@layout/fragment_transition_details" />
+        tools:layout="@layout/fragment_transition_details" >
+        <argument
+            android:name="item"
+            app:argType="com.example.customviewitems.data.ItemModel2" />
+    </fragment>
 </navigation>
