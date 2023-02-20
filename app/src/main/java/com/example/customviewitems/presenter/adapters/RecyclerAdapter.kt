@@ -27,10 +27,8 @@ class RecyclerAdapter :
                 tvTitle.text = item.title
                 tvSubtitle.text = item.subTitle
                 ivImage.setImageResource(item.image)
+                ivImage.transitionName = ivImage.transitionName.plus(adapterPosition.toString())
                 itemView.setOnClickListener {
-
-//                    val pair = Pair<View, String>(binding.ivImage, "image_to")
-
                     onItemClickListener?.invoke(item, binding)
                 }
             }

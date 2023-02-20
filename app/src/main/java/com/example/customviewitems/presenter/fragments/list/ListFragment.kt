@@ -50,6 +50,13 @@ class ListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpItems()
         listeners()
+        enable()
+    }
+
+    fun enable(){
+        binding.selectorSwitch.setOnCheckedChangeListener { compoundButton, b ->
+            binding.bulb.isEnabled = b
+        }
     }
 
     private fun listeners() {
@@ -60,6 +67,12 @@ class ListFragment : Fragment() {
                 )
             )
         }
+        binding.btnSignUp.setOnClickListener {
+            navigateToSignUp()
+        }
+    }
+    fun navigateToSignUp(){
+        findNavController().navigate(ListFragmentDirections.actionListFragmentToSignUpFragment())
     }
 
     private fun setUpItems() {

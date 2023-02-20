@@ -22,10 +22,6 @@ class CustomViewAdapter(private val context: Context, private val list: List<Ite
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.custom_item_view, null)
 
-// Activity
-//        val inflater = context.layoutInflater
-//        val view = inflater.inflate(R.layout.custom_item_view, null)
-
         val image = view.findViewById<AppCompatImageView>(R.id.ivImage)
         val title = view.findViewById<AppCompatTextView>(R.id.tvTitle)
         val subTitle = view.findViewById<AppCompatTextView>(R.id.tvSubtitle)
@@ -37,22 +33,4 @@ class CustomViewAdapter(private val context: Context, private val list: List<Ite
         return view
 
     }
-
-//    private val tvTitle: AppCompatTextView
-//    private val tvSubTitle: AppCompatTextView
-//    private val ivImage: AppCompatImageView
-//
-//    init {
-//        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-//        val view = inflater.inflate(R.layout.custom_item_view, this, true)
-//        tvTitle = view.findViewById(R.id.tvTitle)
-//        tvSubTitle = view.findViewById(R.id.tvSubtitle)
-//        ivImage = view.findViewById(R.id.ivImage)
-//    }
-//
-//    fun setData(item: ItemModel) {
-//        tvTitle.text = item.title
-//        tvSubTitle.text = item.subTitle
-//        Glide().setImage(item.imageUrl, ivImage)
-//    }
 }

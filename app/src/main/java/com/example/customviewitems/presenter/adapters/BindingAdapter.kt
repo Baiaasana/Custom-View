@@ -14,7 +14,6 @@ fun AppCompatImageView.setImage(url: String?) {
         .centerCrop()
         .into(this)
 }
-
 @BindingAdapter("setResource")
 fun AppCompatImageView.setResource(image: Int){
     this.setImageResource(image)
