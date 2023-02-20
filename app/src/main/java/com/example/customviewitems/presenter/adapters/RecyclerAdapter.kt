@@ -1,16 +1,22 @@
 package com.example.customviewitems.presenter.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.app.ActivityOptionsCompat
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.customviewitems.data.ItemModel2
 import com.example.customviewitems.databinding.RecyclerItemBinding
 
 class RecyclerAdapter :
-    androidx.recyclerview.widget.ListAdapter<ItemModel2, RecyclerAdapter.ItemViewHolder>(ItemCallback) {
+    androidx.recyclerview.widget.ListAdapter<ItemModel2, RecyclerAdapter.ItemViewHolder>(
+        ItemCallback
+    ) {
 
-    var onItemClickListener: ((ItemModel2) -> Unit)? = null
+    var onItemClickListener: ((ItemModel2, RecyclerItemBinding) -> Unit)? = null
 
     inner class ItemViewHolder(private val binding: RecyclerItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -21,8 +27,11 @@ class RecyclerAdapter :
                 tvTitle.text = item.title
                 tvSubtitle.text = item.subTitle
                 ivImage.setImageResource(item.image)
-                root.setOnClickListener {
-                    onItemClickListener?.invoke(item)
+                itemView.setOnClickListener {
+
+//                    val pair = Pair<View, String>(binding.ivImage, "image_to")
+
+                    onItemClickListener?.invoke(item, binding)
                 }
             }
         }

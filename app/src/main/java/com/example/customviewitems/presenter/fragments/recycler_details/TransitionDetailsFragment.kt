@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
 import com.example.customviewitems.databinding.FragmentTransitionDetailsBinding
+import com.google.android.material.transition.MaterialContainerTransform
 
 class TransitionDetailsFragment : Fragment() {
 
@@ -16,8 +17,7 @@ class TransitionDetailsFragment : Fragment() {
 
     private val args : TransitionDetailsFragmentArgs by navArgs()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private fun setUpTransition(){
         val animation = TransitionInflater.from(requireContext()).inflateTransition(
             android.R.transition.move
         )
@@ -31,6 +31,7 @@ class TransitionDetailsFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         _binding = FragmentTransitionDetailsBinding.inflate(inflater, container, false)
+        setUpTransition()
         return binding.root
     }
 
@@ -38,7 +39,6 @@ class TransitionDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.item = args.item
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
