@@ -10,10 +10,9 @@ import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.customviewitems.R
+import androidx.navigation.fragment.findNavController
 import com.example.customviewitems.databinding.FragmentSignUpBinding
 import java.util.*
-
 
 class SignUpFragment : Fragment() {
 
@@ -45,12 +44,13 @@ class SignUpFragment : Fragment() {
 
     private fun listeners() {
         binding.btnSignUp.setOnClickListener {
-            signUpViewModel.addUser(binding.etUsername.getEditText().text.toString())
-            Toast.makeText(
-                context,
-                binding.etUsername.getEditText().text.toString(),
-                Toast.LENGTH_SHORT
-            ).show()
+//            signUpViewModel.addUser(binding.etUsername.getEditText().text.toString())
+//            Toast.makeText(
+//                context,
+//                binding.etUsername.getEditText().text.toString(),
+//                Toast.LENGTH_SHORT
+//            ).show()
+            findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToSettingsFragment())
         }
     }
 
