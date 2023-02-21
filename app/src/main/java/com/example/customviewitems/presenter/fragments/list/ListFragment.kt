@@ -71,7 +71,7 @@ class ListFragment : Fragment() {
             navigateToSignUp()
         }
     }
-    fun navigateToSignUp(){
+    private fun navigateToSignUp(){
         findNavController().navigate(ListFragmentDirections.actionListFragmentToSignUpFragment())
     }
 

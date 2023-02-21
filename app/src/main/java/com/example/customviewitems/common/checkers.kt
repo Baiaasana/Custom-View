@@ -1,23 +1,14 @@
 package com.example.customviewitems.common
 
 
-fun checkEmail(string: String): String? {
+fun isValidEmail(email: String): String? {
 
-    return if (android.util.Patterns.EMAIL_ADDRESS.matcher(string.trim())
-            .matches() && string.isNotEmpty()
+    return if (android.util.Patterns.EMAIL_ADDRESS.matcher(email.trim())
+            .matches() && email.isNotEmpty()
     ) {
         null
     } else {
         "ემაილი არ არის ვალიდური"
-    }
-}
-
-fun checkRepeatEmail(repeatPassword: String, password: String): String? {
-
-    return if (password == repeatPassword) {
-        null
-    } else {
-        "პაროლები არ ემთხვევა"
     }
 }
 
@@ -33,5 +24,14 @@ fun isValidPassword(password: String): String? {
             .firstOrNull() == null) return "შეიყვანეთ სპეციალური სიმბოლბო ( #,+,%,& და ა.შ.)"
 
     return null
-
 }
+
+fun isValidRepeatPassword(repeatPassword: String, password: String): String? {
+
+    return if (password == repeatPassword) {
+        null
+    } else {
+        "პაროლები არ ემთხვევა"
+    }
+}
+

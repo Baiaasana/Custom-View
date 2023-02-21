@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ViewModel"
+            type="com.example.customviewitems.presenter.fragments.sign_up.SignUpViewModel" />
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,7 +30,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginVertical="50dp"
             android:backgroundTint="@color/white"
-            android:src="@mipmap/bulb" />
+            android:src="@mipmap/bulb"
+            tools:ignore="ImageContrastCheck" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,8 +45,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Login"
-                android:textColor="@color/black"
+                android:text="@string/login"
+                android:textColor="#757575"
                 android:textSize="19sp" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -47,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Sign up"
+                android:text="@string/sign_up"
                 android:textColor="@color/black"
                 android:textSize="19sp" />
 
@@ -59,8 +67,10 @@
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hint="@{`asd`}"
-
+        app:hint="@{`Username`}"
+        text="@{ViewModel.username}"
+        android:inputType="textEmailAddress"
+        endIconMode="@{2}"
         app:layout_constraintEnd_toEndOf="@+id/frameLayout2"
         app:layout_constraintStart_toStartOf="@+id/frameLayout2"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
@@ -69,8 +79,8 @@
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hint="@{`asd`}"
-
+        app:hint="@{`Email`}"
+        endIconMode="@{2}"
         app:layout_constraintEnd_toEndOf="@+id/etUsername"
         app:layout_constraintStart_toStartOf="@+id/etUsername"
         app:layout_constraintTop_toBottomOf="@+id/etUsername"/>
@@ -80,7 +90,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/etEmail"
-        app:hint="@{`asd`}"
+        app:hint="@{`Password`}"
+        app:endIconMode="@{1}"
         app:layout_constraintStart_toStartOf="@+id/etEmail"
         app:layout_constraintTop_toBottomOf="@+id/etEmail"/>
 
@@ -88,24 +99,26 @@
         android:id="@+id/etRepeatPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hint="@{`asd`}"
-
+        app:endIconMode="@{1}"
+        app:hint="@{`Repeat Password`}"
         app:layout_constraintEnd_toEndOf="@+id/etPassword"
         app:layout_constraintStart_toStartOf="@+id/etPassword"
         app:layout_constraintTop_toBottomOf="@id/etPassword"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_sign_up"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginHorizontal="50dp"
+        android:paddingHorizontal="100dp"
         android:layout_marginBottom="70dp"
         android:backgroundTint="#7E8383"
         android:paddingVertical="15dp"
-        android:text="Sign in"
+        android:text="@string/sign_in"
+        android:enabled="false"
+        android:clickable="false"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="#E6DEDE"
         android:textSize="18sp"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"

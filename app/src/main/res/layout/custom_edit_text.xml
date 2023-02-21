@@ -8,13 +8,16 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
             app:boxBackgroundColor="#E6DEDE"
             app:boxStrokeColor="@color/black"
             app:boxStrokeWidth="1dp"
+            app:errorEnabled="true"
+            app:helperTextTextColor="#5C1212"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat"
             app:boxStrokeWidthFocused="2dp"
             app:hintTextColor="@color/black">
 
@@ -23,7 +26,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:inputType="textEmailAddress"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
