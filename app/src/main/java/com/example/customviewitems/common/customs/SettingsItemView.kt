@@ -23,11 +23,11 @@ class SettingsItemView(context: Context, attrs: AttributeSet) : LinearLayout(con
         descriptionTextView = view.findViewById(R.id.tvSettingDescription)
         switch = view.findViewById(R.id.swSettingSwitch)
 
-        context.obtainStyledAttributes(attrs, R.styleable.SettingItemView).apply {
-            titleTextView.text = getString(R.styleable.SettingItemView_siw_titleText)
-            descriptionTextView.text = getString(R.styleable.SettingItemView_siw_descriptionText)
+        context.obtainStyledAttributes(attrs, R.styleable.SettingsItemView).apply {
+            titleTextView.text = getString(R.styleable.SettingsItemView_siw_titleText)
+            descriptionTextView.text = getString(R.styleable.SettingsItemView_siw_descriptionText)
             switch.visibility =
-                if (getBoolean(R.styleable.SettingItemView_siw_showSwitch, false)) VISIBLE else GONE
+                if (getBoolean(R.styleable.SettingsItemView_siw_showSwitch, false)) VISIBLE else GONE
             recycle()
         }
         hideDescriptionViewIfNoContent()

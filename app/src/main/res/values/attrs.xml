@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="SettingItemView">
+    <declare-styleable name="SettingsItemView">
         <attr name="siw_titleText" format="string" />
         <attr name="siw_descriptionText" format="string" />
         <attr name="siw_showSwitch" format="boolean" />

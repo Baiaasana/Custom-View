@@ -38,18 +38,19 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = signUpViewModel
+        binding.btnSignUp.isEnabled = false
         validation()
         listeners()
     }
 
     private fun listeners() {
         binding.btnSignUp.setOnClickListener {
-//            signUpViewModel.addUser(binding.etUsername.getEditText().text.toString())
-//            Toast.makeText(
-//                context,
-//                binding.etUsername.getEditText().text.toString(),
-//                Toast.LENGTH_SHORT
-//            ).show()
+            signUpViewModel.addUser(binding.etUsername.getEditText().text.toString())
+            Toast.makeText(
+                context,
+                binding.etUsername.getEditText().text.toString(),
+                Toast.LENGTH_SHORT
+            ).show()
             findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToSettingsFragment())
         }
     }

@@ -11,18 +11,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="#E6DEDE"
         tools:context=".presenter.fragments.settings.SettingsFragment">
 
-        <com.example.customviewitems.common.customs.SettingsItemView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
-            text="efefe"
             android:layout_height="wrap_content"
-            />
+            android:text="Settings"
+            android:textColor="#605E5E"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:textSize="20sp"/>
 
         <com.example.customviewitems.common.customs.SettingsItemView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-             />
+            app:siw_descriptionText="On"
+            app:siw_showSwitch="true"
+            app:siw_titleText="Timer" />
+
+        <com.example.customviewitems.common.customs.SettingsItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:siw_showSwitch="true"
+            app:siw_titleText="Touch Sounds" />
+
+        <com.example.customviewitems.common.customs.SettingsItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:siw_descriptionText="English"
+            app:siw_titleText="Language" />
+
+        <com.example.customviewitems.common.customs.SettingsItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:siw_descriptionText="Off"
+            app:siw_titleText="Google fit" />
+
+        <com.example.customviewitems.common.customs.SettingsItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:siw_titleText="Helper Center" />
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
