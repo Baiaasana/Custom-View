@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
-        <import type="com.example.customviewitems.data.ItemModel"/>
+        <import type="com.example.customviewitems.data.ItemModel2" />
+
         <variable
             name="item"
-            type="ItemModel" />
+            type="ItemModel2" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="@color/teal_700"
         android:layout_height="match_parent"
-        tools:context=".presenter.fragments.list_details.DetailsFragment">
+        tools:context=".presenter.fragments.recycler_details.TransitionDetailsFragment">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivImageDetails"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_marginTop="50dp"
-            setImage="@{item.component3()}"
+            setResource="@{item.component3()}"
+            android:transitionName="image_to"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@mipmap/ic_launcher" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
@@ -35,6 +37,7 @@
             android:layout_marginVertical="50dp"
             android:gravity="center"
             android:text="@{item.component1()}"
+            android:transitionName="title_to"
             android:textColor="@color/black"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="@+id/ivImageDetails"
@@ -47,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="30dp"
             android:gravity="center"
+            android:transitionName="subtitle_to"
             android:paddingHorizontal="20dp"
             android:text="@{item.component2()}"
             android:textSize="20sp"

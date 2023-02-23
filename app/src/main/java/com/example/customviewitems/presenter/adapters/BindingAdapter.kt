@@ -1,4 +1,4 @@
-package com.example.customviewitems.adapters
+package com.example.customviewitems.presenter.adapters
 
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
@@ -13,4 +13,8 @@ fun AppCompatImageView.setImage(url: String?) {
         .placeholder(R.mipmap.ic_launcher)
         .centerCrop()
         .into(this)
+}
+@BindingAdapter("setResource")
+fun AppCompatImageView.setResource(image: Int){
+    this.setImageResource(image)
 }

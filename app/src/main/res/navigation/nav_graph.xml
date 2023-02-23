@@ -7,20 +7,55 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.customviewitems.fragments.list.ListFragment"
+        android:name="com.example.customviewitems.presenter.fragments.list.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_listFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.example.customviewitems.fragments.details.DetailsFragment"
+        android:name="com.example.customviewitems.presenter.fragments.list_details.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" >
         <argument
             android:name="item"
             app:argType="com.example.customviewitems.data.ItemModel"/>
     </fragment>
+    <fragment
+        android:id="@+id/transitionFragment"
+        android:name="com.example.customviewitems.presenter.fragments.recycler.TransitionFragment"
+        android:label="fragment_recycler"
+        tools:layout="@layout/fragment_transition" >
+        <action
+            android:id="@+id/action_recyclerFragment_to_recyclerDetailsFragment"
+            app:destination="@id/transitionDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transitionDetailsFragment"
+        android:name="com.example.customviewitems.presenter.fragments.recycler_details.TransitionDetailsFragment"
+        android:label="fragment_recycler_details"
+        tools:layout="@layout/fragment_transition_details" >
+        <argument
+            android:name="item"
+            app:argType="com.example.customviewitems.data.ItemModel2" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.customviewitems.presenter.fragments.sign_up.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.customviewitems.presenter.fragments.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

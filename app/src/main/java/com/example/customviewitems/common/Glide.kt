@@ -1,4 +1,4 @@
-package com.example.customviewitems.fragments
+package com.example.customviewitems.common
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
@@ -6,7 +6,6 @@ import com.example.customviewitems.R
 
 
 class Glide {
-
     fun setImage(url: String?, image: ImageView) {
         Glide
             .with(image.context)
